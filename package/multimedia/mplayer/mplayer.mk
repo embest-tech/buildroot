@@ -116,6 +116,14 @@ ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
 MPLAYER_CONF_OPTS += --enable-neon
 endif
 
+ifeq ($(BR2_TOOLCHAIN_EXTERNAL_CODESOURCERY_ARM201109),y)
+MPLAYER_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+endif
+
+ifeq ($(BR2_TOOLCHAIN_EXTERNAL_LINARO_2013_01),y)
+MPLAYER_CFLAGS += -mfpu=neon -mfloat-abi=hard
+endif
+
 ifeq ($(BR2_i386),y)
 # inline asm breaks with "can't find a register in class 'GENERAL_REGS'"
 # inless we free up ebp

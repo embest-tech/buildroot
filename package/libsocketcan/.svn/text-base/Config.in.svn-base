@@ -1,7 +1,5 @@
-config BR2_PACKAGE_CAN_UTILS
-	bool "can-utils"
-	select BR2_PACKAGE_LIBSOCKETCAN
-	depends on BR2_USE_MMU # fork()
+config BR2_PACKAGE_LIBSOCKETCAN
+	bool "libsocketcan"
 	help
 	  SocketCAN is a set of open source CAN drivers and a
 	  networking stack.
